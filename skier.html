@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://d3js.org/d3.v5.js"></script>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
+
+		<style>
+			* {
+			font-family: 'Open Sans', sans-serif;
+			         margin: 1em;
+			}
+			div {
+			border-style: solid;
+			padding: 1em;
+			float:right;
+			border:2px solid red;
+			width:430px;
+			margin-right:10em;
+			}
+			         p {
+			             margin: 0;
+			             padding: 0;
+			         }
+						}
+		</style>
+	</head>
+
+	<body>
+		<h1>Forsøk på å lage en tutorial i JavaScript og D3.js</h1>
+		<p>
+			Denne interaktive visualiseringen regner ut den estimerte hastigheten en
+			utøver har i mål ved å kjøre rett ned bakken med utgangspunkt i
+			høydeforskjell og utøverens vekt. Det er viktig å understreke at
+			estimeringen ikke tar hensyn til energi som går med til anvendte krefter,
+			dvs. luftmotstand eller friksjon. Høydeforskjellen justerer du ved å ved
+			dra skikjøreren opp og ned bakken, mens vekten bestemmer du i meyen under
+			figuren.
+		</p>
+
+		<div>
+			<p><strong>Høydeforskjell:</strong><span id="skier-height"></span></p>
+			<p><strong>Vekt:</strong><span id="skier-vekt">70</span> kg</p>
+			<p>
+				<strong>Gravitasjonskraft (fg):</strong>
+				<span id="skier-gravitasjon">9.8</span> m/sek/sek
+			</p>
+			<p>
+				<strong>Tilgjengelig potensiell energi:</strong>
+				<span id="skier-potentialenergi">0</span>
+			</p>
+			<p>
+				<strong>Hastighet i mål:</strong>
+				<span id="skier-hastighet">0</span> m/sek
+			</p>
+		</div>
+
+		<svg width="800" height="300"></svg>
+		<form>
+			Velg utøverens vekt:
+			<input type="number" id="vekt" placeholder="Velg utøverens vekt" />
+		</form>
+		<input type="button" value="velg" onclick="vektVelger()" />
+
+		<script src="skier.js"></script>
+	</body>
+</html>
