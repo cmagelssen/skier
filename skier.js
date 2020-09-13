@@ -2,9 +2,11 @@
 const form = document.getElementById('form');
 form.addEventListener('submit', vektVelger);
 
+const graph = document.getElementById('graph');
+const height = graph.getAttribute("height"); // henter height fra svg-tag
+const width = graph.getAttribute("width"); // henter width fra svg-tag
 
-const height = 500;
-const width = 800;
+
 const skierIconSvg = 'skier.svg';
 const gate =
 	'https://docs.google.com/drawings/d/e/2PACX-1vReBMnm0oMHA-DuF_s6ds4irdAl_Y_zSbW3rO3DzG6u2Gmp2_ta2tFXO-poCOm7wXx02Dzd2EsT0c13/pub?w=186&h=290';
@@ -173,9 +175,6 @@ function potensiellEnergi() {
 	const hastighet = document.querySelector('#skier-hastighet');
 	const potEDisplay = document.querySelector('#skier-potentialenergi');
 	const potEnergi = `${vektVerdi * skierHeight * 9.8}`;
-	console.log(vektVerdi)
-	console.log(skierHeight)
-	console.log(potEnergi)
 	const hastighetsutregning = Math.sqrt(2 * (skierHeight * 9.8));
 	hastighet.innerHTML = `${hastighetsutregning}`
 	potEDisplay.innerHTML = `${potEnergi}`
