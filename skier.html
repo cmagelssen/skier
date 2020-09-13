@@ -17,6 +17,8 @@
 			rel="stylesheet"
 		/>
 
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- 
 		<style>
 			* {
 			font-family: 'Open Sans', sans-serif;
@@ -35,10 +37,11 @@
 			             padding: 0;
 			         }
 						}
-		</style>
+		</style> -->
 	</head>
 
 	<body>
+		<div class="container mt-5">
 		<h1>Forsøk på å lage en tutorial i JavaScript og D3.js</h1>
 		<p>
 			Denne interaktive visualiseringen regner ut den estimerte hastigheten en
@@ -50,30 +53,59 @@
 			figuren.
 		</p>
 
-		<div>
-			<p><strong>Høydeforskjell:</strong><span id="skier-height"></span></p>
-			<p><strong>Vekt:</strong><span id="skier-vekt">70</span> kg</p>
-			<p>
-				<strong>Gravitasjonskraft (fg):</strong>
-				<span id="skier-gravitasjon">9.8</span> m/sek/sek
-			</p>
-			<p>
-				<strong>Tilgjengelig potensiell energi:</strong>
-				<span id="skier-potentialenergi">0</span>
-			</p>
-			<p>
-				<strong>Hastighet i mål:</strong>
-				<span id="skier-hastighet">0</span> m/sek
-			</p>
+		<div class="row mt-5">
+			<div class="col-9">
+
+				<form class="form-inline">
+					<div class="form-group">
+						<label class="mr-2" for="vekt">Velg utøverens vekt:</label>
+						<input type="number" class="form-control" id="vekt" placeholder="Velg utøverens vekt" />
+					</div>
+					<input class="btn btn-primary ml-2" type="button" value="velg" onclick="vektVelger()" />
+
+				</form>
+
+
+				<svg width="800" height="300"></svg>
+				
+			</div>
+
+			<div class="col-3">
+		<div class="card">
+			<div class="card-body">
+
+				<p>
+					<strong>Høydeforskjell:</strong><br>
+					<span id="skier-height"></span>
+				</p>
+				<p>
+					<strong>Vekt:</strong> <br>
+					<span id="skier-vekt">70</span> kg
+				</p>
+				<p>
+					<strong>Gravitasjonskraft (fg):</strong> <br>
+					<span id="skier-gravitasjon">9.8</span> m/sek/sek
+				</p>
+				<p>
+					<strong>Tilgjengelig potensiell energi:</strong> <br>
+					<span id="skier-potentialenergi">0</span>
+				</p>
+				<p>
+					<strong>Hastighet i mål:</strong> <br>
+					<span id="skier-hastighet">0</span> m/sek
+				</p>
+						</div>
 		</div>
 
-		<svg width="800" height="300"></svg>
-		<form>
-			Velg utøverens vekt:
-			<input type="number" id="vekt" placeholder="Velg utøverens vekt" />
-		</form>
-		<input type="button" value="velg" onclick="vektVelger()" />
+
+			</div>
+
+		</div>
+
+
+
 
 		<script src="skier.js"></script>
+		</div>
 	</body>
 </html>
