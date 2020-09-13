@@ -1,3 +1,8 @@
+
+const form = document.getElementById('form');
+form.addEventListener('submit', vektVelger);
+
+
 const height = 500;
 const width = 800;
 const skierIconSvg = 'skier.svg';
@@ -152,6 +157,8 @@ function getHeight([xp, yp], [x1, y1], [x2, y2]) {
 }
 
 function vektVelger() {
+	event.preventDefault();
+	event.stopPropagation();
 	const vektVerdi = document.querySelector('#vekt');
 	const vektDisplay = document.querySelector('#skier-vekt');
 
@@ -159,16 +166,19 @@ function vektVelger() {
 }
 
 function potensiellEnergi() {
-	const vektVerdi = parseInt(document.querySelector('#skier-vekt').textContent);
+	const vektVerdi = document.querySelector('#vekt').value;
 	const skierHeight = parseInt(
 		document.querySelector('#skier-height').textContent
 	);
 	const hastighet = document.querySelector('#skier-hastighet');
 	const potEDisplay = document.querySelector('#skier-potentialenergi');
 	const potEnergi = `${vektVerdi * skierHeight * 9.8}`;
+	console.log(vektVerdi)
+	console.log(skierHeight)
+	console.log(potEnergi)
 	const hastighetsutregning = Math.sqrt(2 * (skierHeight * 9.8));
-	return (hastighet.innerHTML = `${hastighetsutregning}`);
-	return (potEDisplay.innerHTML = `${potEnergi}`);
+	hastighet.innerHTML = `${hastighetsutregning}`
+	potEDisplay.innerHTML = `${potEnergi}`
 }
 
 function dropSkier(d) {
